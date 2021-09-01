@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.thanhxanh {
+    height: 50px;
+    background: #3b5998;
+}
+.khoiphai{
+    float: right;
+}
+._1khoi {
+    position: relative;
+    float: left;
+}
+
+.dehienthi {
+    position: absolute;
+    width: 200px;
+    font-size: 13px;
+    transition: 0.4s;
+    right: 3px;
+    opacity: 0;
+    visibility: hidden;
+
+}
+
+.declick {
+    padding: 10px 20px;
+    transition: 0.4s;
+}
+
+.declick i.fa {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.dehienthi:after {
+    content: "";
+    position: absolute;
+    top: -20px;
+    width: 0px;
+    height: 0px;
+    border: 11px rgba(255, 215, 0, 0) solid;
+    border-bottom-color: white;
+    right: 10px;
+}
+
+.mau-trang {
+    color: white;
+}
+
+.ra {
+    opacity: 1;
+    visibility: visible;
+    /* animation: len 1s forwards; */
+}
+
+/* @keyframes len {
+    from {
+        transform: rotateY(90deg);
+        opacity: 0;
+        perspective: 500px;
+        transform-origin: 100% 10%;
+    }
+
+    to {
+        transform: rotateY(0deg);
+        opacity: 1;
+        transform-origin: 100% 10%;
+    }
+} */
