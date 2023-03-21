@@ -1,290 +1,47 @@
 <!DOCTYPE html>
-<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 8)|!(IE)]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
-
+<html>
 <head>
-
-    <!--- Basic Page Needs
-   ================================================== -->
-    <meta charset="utf-8">
-    <title>Thục Linh</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Mobile Specific Metas
-   ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/default.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/media-queries.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <!-- Script
-   ================================================== -->
-    <script src="js/modernizr.js"></script>
-
-    <!-- Favicons
-	================================================== -->
-    <link rel="shortcut icon" href="images/avatar.jpg">
-
+	<meta charset='utf-8'>
+	<title>Leaflet.Control.FullScreen Demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@latest/dist/leaflet.css" />
+	<link rel="stylesheet" href="Control.FullScreen.css" />
+	<style type="text/css">
+		#map { width: 700px; max-width: 100%; height: 433px; }
+	</style>
+	<script src="https://unpkg.com/leaflet@latest/dist/leaflet.js"></script>
+	<script src="Control.FullScreen.js"></script>
 </head>
-
 <body>
 
-    <!-- Header
-   ================================================== -->
-    <header id="home">
+	<div id="map"></div>
 
-        <nav id="nav-wrap">
-            <ul id="nav" class="nav">
-                <li class="current"><a class="smoothscroll" href="#home">Trang chủ</a></li>
-                <li><a class="smoothscroll" href="#about">Giới thiệu</a></li>
-                <li><a class="smoothscroll" href="#resume">Học tập</a></li>
-                <li><a class="smoothscroll" href="#portfolio">Sản phẩm</a></li>
-                <li><a class="smoothscroll" href="#contact">Liên hệ</a></li>
-            </ul> <!-- end #nav -->
+	<script>
+		var base = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+			maxZoom: 19,
+			subdomains: 'abcd',
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+		});
 
-        </nav> <!-- end #nav-wrap -->
+		var map = L.map('map', {
+			layers: [base],
+			// tap: false, // ref https://github.com/Leaflet/Leaflet/issues/7255
+			center: new L.LatLng(48.5, -4.5),
+			zoom: 5,
+			fullscreenControl: true,
+			fullscreenControlOptions: { // optional
+				title:"Show me the fullscreen !",
+				titleCancel:"Exit fullscreen mode"
+			}
+		});
 
-        <div class="row banner">
-            <div class="banner-text">
-                <h1 class="responsive-headline">Cao Thục Linh</h1>
-                <h3>Web development <span>with PHP - MYSQL</span>
-            </div>
-        </div>
-
-        <p class="scrolldown">
-            <a class="smoothscroll" href="#about"><i class="icon-down-circle"></i></a>
-        </p>
-
-    </header> <!-- Header End -->
-
-
-    <!-- About Section
-   ================================================== -->
-    <section id="about">
-
-        <div class="row">
-
-            <div class="three columns">
-
-                <img class="profile-pic" src="images/avatar.jpg" alt="" />
-
-            </div>
-
-            <div class="nine columns main-col">
-
-                <h2>Thông tin cơ bản</h2>
-
-                <p><b>Họ tên:</b> Cao Thục Linh <br>
-                    <b>Sinh nhật:</b> 19/04/1997 <br>
-                    Sinh ra và lớn lên tại Gia Lai, đến cuối năm 2016 vào Đà Nẵng học đại học tại trường Đông Á University ngành CNTT. <br>
-                    Từ năm 2017 - 2019 làm một số nghề LDPT liên quan tới điện - điện tử. <br>
-                    Đầu năm 2020 bắt đầu tham gia vào khoá học lập trình web tại Trung tâm Aptech Đà Nẵng.<br>
-
-                </p>
-            </div> <!-- end .main-col -->
-        </div>
-    </section> <!-- About Section End-->
-    <!-- Resume Section
-   ================================================== -->
-    <section id="resume">
-        <!-- Education
-      ----------------------------------------------- -->
-        <div class="row education">
-            <div class="three columns header-col">
-                <h1><span>Học tập</span></h1>
-            </div>
-            <div class="nine columns main-col">
-                <div class="row item">
-                    <div class="twelve columns">
-                        <h3>THPT Huỳnh Thúc Kháng</h3>
-                        <p class="info">từ năm 2013 <span>&bull;</span> <em class="date"> đến năm 2016</em></p>
-                        <p>
-                            Tham gia vào chương trình học phổ thông tại Gia Lai và đạt trình độ văn hoá 12/12 vào cuối
-                            năm 2016...
-                        </p>
-
-                    </div>
-
-                </div> <!-- item end -->
-                <div class="row item">
-                    <div class="twelve columns">
-                        <h3>SOFTECH CORPORATION</h3>
-                        <p class="info">Web development PHP - MySQL <span>&bull;</span> <em class="date">04 / 2020 - 09
-                                / 2020</em>
-                        </p>
-                        <p>
-                            Tham gia khoá đào tạo ngắn hạn về lập trình website với PHP và MySQL, tự tay xây dựng cho
-                            bản thân một website đơn giản sử dụng phương pháp lập trình hướng đối tượng (OOP)...
-                        </p>
-                    </div>
-                    <div class="twelve columns">
-                        <img style="margin: 0px auto; display: block;" src="images/certificate.jpeg" alt="certificate">
-                    </div>
-                </div> <!-- item end -->
-            </div> <!-- main-col end -->
-
-        </div> <!-- End Education -->
-        <div class="row skill">
-
-            <div class="three columns header-col">
-                <h1><span>Skills</span></h1>
-            </div>
-
-            <div class="nine columns main-col">
-                <div class="row item">
-                    <div class="twelve columns">
-                        <h3>C++</h3>
-                        <p>basic to object oriented programming</p>
-                    </div>
-                </div> <!-- item end -->
-                <div class="row item">
-                    <div class="twelve columns">
-                        <h3>HTML</h3>
-                    </div>
-                </div> <!-- item end -->
-                <div class="row item">
-                    <div class="twelve columns">
-                        <h3>CSS - BOOTSTRAPT 4</h3>
-                    </div>
-                </div> <!-- item end -->
-                <div class="row item">
-                    <div class="twelve columns">
-                        <h3>Javascript</h3>
-                    </div>
-                </div> <!-- item end -->
-
-                <div class="row item">
-                    <div class="twelve columns">
-                        <h3>PHP & MYSQL / MariaBD</h3>
-                    </div>
-                </div> <!-- item end -->
-                <div class="row item">
-                    <div class="twelve columns">
-                        <h3>Linux - Ubuntu 20.04</h3>
-                    </div>
-                </div> <!-- item end -->
-            </div> <!-- main-col end -->
-
-        </div> <!-- End skills -->
-
-    </section> <!-- Resume Section End-->
-    <!-- Portfolio Section
-   ================================================== -->
-    <section id="portfolio">
-        <div class="row">
-            <div class="twelve columns collapsed">
-                <h1>Sản phẩm của tôi</h1>
-                <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
-                    <a href="https://projectpizzas.000webhostapp.com/">
-                        <div class="columns portfolio-item">
-                            <div class="item-wrap">
-                                <img alt="" src="images/01.jpeg">
-                                <div class="overlay">
-                                    <div class="portfolio-item-meta">
-                                        <h5>Website</h5>
-                                        <p>php basic</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a><!-- item end -->
-                    <a href="https://demopdo.000webhostapp.com/">
-                        <div class="columns portfolio-item">
-                            <div class="item-wrap">
-                                <img alt="" src="images/portfolio/coffee.jpg">
-                                <div class="overlay">
-                                    <div class="portfolio-item-meta">
-                                        <h5>Website</h5>
-                                        <p>DEMO PDO</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a><!-- item end -->
-                    <a href="javascript/facebook/index.html">
-                        <div class="columns portfolio-item">
-                            <div class="item-wrap">
-                                <img alt="" src="images/fb1.png">
-                                <div class="overlay">
-                                    <div class="portfolio-item-meta">
-                                        <h5>Demo</h5>
-                                        <p>Hiệu ứng fb bằng js</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a><!-- item end -->
-                    <a href="demo_js/index.html">
-                        <div class="columns portfolio-item">
-                            <div class="item-wrap">
-                                <img alt="" src="images/portfolio/origami.jpg">
-                                <div class="overlay">
-                                    <div class="portfolio-item-meta">
-                                        <h5>Other</h5>
-                                        <p>Danh sách hiệu ứng khác</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a><!-- item end -->
-                </div> <!-- portfolio-wrapper end -->
-                
-            </div> <!-- twelve columns end -->
-            <!-- Modal Popup -->
-    </section> <!-- Portfolio Section End-->
-    <!-- Contact Section
-   ================================================== -->
-    <section id="contact">
-        <div class="row">
-            <div class="col-12" style="margin: 0px auto;">
-                <h4 style="text-align: center;">Thông tin liên hệ</h4>
-                <p class="address" style="text-align: center; font-size:20px; color: white;">
-                    Việt Nam<br>
-                    151 Âu Cơ <br>
-                    Hoà Khánh Bắc - Liên Chiểu - TP Đà Nẵng<br>
-                    <span>0961-351-655</span>
-                </p>
-            </div>
-
-        </div>
-    </section> <!-- Contact Section End-->
-    <!-- footer
-   ================================================== -->
-    <footer>
-        <div class="row">
-            <div class="twelve columns">
-                <ul class="social-links">
-                    <li><a href="http://facebook.com/linhdevphp/"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="https://github.com/thuclinh997"><i class="fa fa-github"></i></a></li>
-                </ul>
-                <ul class="copyright">
-                    <li>&copy; Copyright 2021 Thục Linh</li>
-                    <li>Design by <a href="" title="Styleshout" target="_blank">Thục Linh</a>
-                    </li>
-                </ul>
-            </div>
-            <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a>
-            </div>
-        </div>
-    </footer> <!-- Footer End-->
-    <!-- Java Script
-   ================================================== -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
-    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
-    <script src="js/jquery.flexslider.js"></script>
-    <script src="js/waypoints.js"></script>
-    <script src="js/jquery.fittext.js"></script>
-    <script src="js/magnific-popup.js"></script>
-    <script src="js/init.js"></script>
+		// detect fullscreen toggling
+		map.on('enterFullscreen', function(){
+			if(window.console) window.console.log('enterFullscreen');
+		});
+		map.on('exitFullscreen', function(){
+			if(window.console) window.console.log('exitFullscreen');
+		});
+	</script>
 </body>
-
 </html>
