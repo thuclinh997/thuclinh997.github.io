@@ -86,7 +86,7 @@
 
 		return false;
 	})();
-
+	console.log(fn);
 	var eventNameMap = {
 		change: fn.fullscreenchange,
 		error: fn.fullscreenerror

@@ -19,12 +19,11 @@
 		var base = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
 			maxZoom: 19,
 			subdomains: 'abcd',
-			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 		});
 
-		var map = L.map('map', {
+		var map = new L.map('map', {
 			layers: [base],
-			// tap: false, // ref https://github.com/Leaflet/Leaflet/issues/7255
+			tap: true, // ref https://github.com/Leaflet/Leaflet/issues/7255
 			// center: new L.LatLng(48.5, -4.5),
 			// zoom: 5,
 			fullscreenControl: true,
