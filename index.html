@@ -36,6 +36,9 @@
 			[48.5, -4.5], 5
 		);
 
+		window.leafletMap = map;
+		console.log(window.leafletMap)
+
 		// detect fullscreen toggling
 		map.on('enterFullscreen', function(){
 			if(window.console) window.console.log('enterFullscreen');
